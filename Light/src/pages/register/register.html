@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cadastro <span *ngIf="cadOferta">Profissional</span><span *ngIf="!cadOferta">de Cliente</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list padding [formGroup]="userSession">
+      <ion-item>
+        <ion-label color="primary" fixed>Nome</ion-label>
+        <ion-input type="text" formControlName="name" [class.error]="!userSession.controls.name.valid && userSession.controls.name.dirty"></ion-input>      
+      </ion-item>       
+      <ion-item>
+        <ion-label color="primary" stacked>E-Mail <span class="info">*</span></ion-label>          
+        <ion-input type="text" formControlName="email" [class.error]="!userSession.controls.email.valid && userSession.controls.email.dirty"></ion-input>      
+      </ion-item> 
+      <ion-item>
+        <ion-label color="primary" stacked>DDD + Celular (Números para contato) <span class="info">*</span></ion-label>          
+        <ion-input type="text" formControlName="celular" [class.error]="!userSession.controls.celular.valid && userSession.controls.celular.dirty"></ion-input>      
+      </ion-item>       
+      <ion-item>
+        <ion-label color="primary" stacked>Endereço (Ex: sua cidade, Uf) <span class="info">*</span></ion-label>
+        <ion-textarea type="text" formControlName="endereco" [class.error]="!userSession.controls.endereco.valid && userSession.controls.endereco.dirty"></ion-textarea>      
+      </ion-item>
+      <ion-item *ngIf="cadOferta">
+        <ion-label color="primary" fixed>Oferta</ion-label>   
+        <ion-select formControlName="oferta" [class.error]="!userSession.controls.oferta.valid && userSession.controls.oferta.dirty">
+          <ion-option *ngFor="let item of getProfissoes()" value="{{item.id}}">{{item.value}}</ion-option>
+        </ion-select>       
+      </ion-item>       
+      <ion-item *ngIf="cadOferta">
+        <ion-label color="primary" stacked>Comentário sobre a oferta</ion-label>
+        <ion-textarea type="text" formControlName="descricao" [class.error]="!userSession.controls.descricao.valid && userSession.controls.descricao.dirty"></ion-textarea>      
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Senha</ion-label>
+        <ion-input type="password" formControlName="password" [class.error]="!userSession.controls.password.valid && userSession.controls.password.dirty"></ion-input>      
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Confirmar</ion-label>
+        <ion-input type="password" formControlName="passwordConfirm" [class.error]="!userSession.controls.passwordConfirm.valid && userSession.controls.passwordConfirm.dirty"></ion-input>      
+      </ion-item>
+      <div class="infoMsg">As informações com <span class="info">*</span> serão mantidas ocultas.</div>
+      <button block ion-button (click)="registerUser(userSession)" [disabled]="!userSession.valid">Salvar</button>
+    </ion-list>                                 
+</ion-content>

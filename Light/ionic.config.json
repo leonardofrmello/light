@@ -1,0 +1,13 @@
+{
+  "name": "Nutricao",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/pageApi",
+      "proxyUrl": "http://localhost/Qualidade/Web/Api"
+    }
+  ]
+}

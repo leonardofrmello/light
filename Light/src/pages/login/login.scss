@@ -1,0 +1,38 @@
+page-login {
+    .bg-style {
+        background-image: url('../assets/images/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .scroll-content {
+        align-content: center;
+        text-align: center;
+    }
+
+    ion-card.card {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+
+    a, p,ion-card-header.card-header {
+        color: #fff!important;
+    }
+
+    .item {
+        margin-bottom: 10px;
+        border: medium none;
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .logoLogin{
+        width: 70%;
+        margin: 5% auto
+    }
+
+}

@@ -1,0 +1,22 @@
+<ion-menu [content]="content" persistent="true" *ngIf="userSession">
+    <ion-content>
+      <ion-item id="cabecalho-menu" class="cabecalho-menu">
+        <div>
+          <ion-avatar item-start>
+            <img src="{{userSession.img || './assets/images/0.png'}}">
+          </ion-avatar>
+        </div>
+        <h2>{{userSession.name}}</h2>
+        <p>{{userSession.email}}</p>
+      </ion-item>        
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon  name="{{p.icon}}" style="margin-right:10%"></ion-icon> {{p.title}}
+        </button>
+        <button menuClose ion-item (click)="presentLogout()">
+          <ion-icon name="log-out" style="margin-right:10%"></ion-icon> Sair
+        </button>      
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
