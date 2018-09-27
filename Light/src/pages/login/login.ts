@@ -22,8 +22,11 @@ export class LoginPage {
     private formBuilder: FormBuilder
   ) {
     this.userData = this.formBuilder.group({
-      username: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+      username: new FormControl(''),
+      password: new FormControl(''),
+
+      /*username: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),*/
     });
   }
 
@@ -32,12 +35,13 @@ export class LoginPage {
   }
 
   public singIn(userData) {        
-    this.baseService.postData(userData.value, "signup", "LightApi").then((result: Pessoa) => {
+    this.navCtrl.setRoot(MainPage);
+    /*this.baseService.postData(userData.value, "signup", "LightApi").then((result: Pessoa) => {
       this.baseService.createUserSession(result);      
       this.navCtrl.setRoot(MainPage);
     }, (err) => {
       this.baseService.showMessage(err.error.text);
-    });    
+    });*/    
   }
 
 }

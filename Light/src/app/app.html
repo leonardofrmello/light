@@ -1,13 +1,13 @@
-<ion-menu [content]="content" persistent="true" *ngIf="userSession">
+<ion-menu [content]="content" persistent="true">
     <ion-content>
       <ion-item id="cabecalho-menu" class="cabecalho-menu">
         <div>
           <ion-avatar item-start>
-            <img src="{{userSession.img || './assets/images/0.png'}}">
+            <img src="{{'./assets/images/0.png'}}">
           </ion-avatar>
         </div>
-        <h2>{{userSession.name}}</h2>
-        <p>{{userSession.email}}</p>
+        <h2>Leonardo</h2>
+        <p>leonardo@hotmail.com</p>
       </ion-item>        
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
